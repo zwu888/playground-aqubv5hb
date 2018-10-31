@@ -1,19 +1,25 @@
-# Welcome!
-
-This C++ template lets you get started quickly with a simple one-page playground.
+# description: 
+ There can only be one function with the same signature. Altering the cv qualification of parameters does not change the function signature.  Therefore the two foo functions have the same signature and the program is ill-formed.
 
 ```C++ runnable
 #include <iostream>
 
-using namespace std;
-
-int main() 
+int foo(int x, int y)
 {
-    cout << "Hello, World!";
-    return 0;
+  return x+y;
 }
-```
 
-# Advanced usage
+int foo(const int x, const int y)
+{
+  return x+y+1;
+}
 
-If you want a more complex example (external libraries, viewers...), use the [Advanced C++ template](https://tech.io/select-repo/598)
+int main(int argc, char** argv)
+{
+  const int x = 3;
+  const int y = 2;
+
+  std::cout << foo(x,y) << std::endl;
+
+  return 0;
+}
